@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  cyberprez02:
+    build:
+        context: .
+        dockerfile: Dockerfile
+    image: docker.thoughtless.eu/cyberprez/ansible01
+    container_name: cyberprez02
+    networks:
+      - traefik-net
+    ports:
+      - 8062:80
+    deploy:
+      replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.cyberprezansible.entrypoints=secure"
+        - "traefik.http.routers.cyberprezansible.rule=Host(`ansible.avec.une-tasse-de.cafe`)"
+        - "traefik.http.routers.cyberprezansible.tls.certresolver=letsencrypt"
+        - "traefik.http.services.cyberprezansible.loadbalancer.server.port=80"
+      placement:
+        preferences:
+          - spread: node.labels.soft=1
+networks:
+  traefik-net:
+    external: true
+    driver: overlay
+    name: traefik-net
+
