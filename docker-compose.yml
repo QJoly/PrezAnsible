@@ -15,10 +15,8 @@ services:
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.cyberprezansible.entrypoints=secure"
-        - "traefik.http.routers.cyberprezansible.rule=Host(`ansible.une-tasse-de.cafe`)"
+        - "traefik.http.routers.cyberprezansible.rule=Host(`ansible.une-tasse-de.cafe`, `ansible.avec.une-tasse-de.cafe`)"
         - "traefik.http.routers.cyberprezansible.tls.certresolver=cloudflare"
-        - "traefik.http.routers.traefik.tls.domains[0].main=une-tasse-de.cafe"
-        - "traefik.http.routers.traefik.tls.domains[0].sans=*.une-tasse-de.cafe"
         - "traefik.http.services.cyberprezansible.loadbalancer.server.port=80"
       placement:
         preferences:
