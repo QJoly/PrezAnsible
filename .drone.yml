@@ -26,11 +26,10 @@ name: CD !
 kind: pipeline
 type: docker
 depends_on:
-  - "Envoie des images sur les repos Docker"
+  - "Build de l'image Docker"
 trigger:
-  branch:
-  - master
-  - cicd-test
+#  branch:
+#  - master
   event:
     exclude:
       - pull_request
