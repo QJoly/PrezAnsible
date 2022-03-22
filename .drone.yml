@@ -1,0 +1,24 @@
+---
+name: Build de l'image Docker
+kind: pipeline
+type: exec
+steps:
+- name: Création de l'image site
+  commands:
+    - docker-compose build 
+
+- name: Connexion au registre Docker personnel
+  commands : 
+    # En cas de re-intialisation du registre privé
+    #    - runuser -l root -c "echo $docker_registry_pass | docker login -u $docker_registry_user --password-stdin registry.thoughtless.eu"
+    - docker-compose build
+#  environment:
+#    docker_registry_pass:
+#      from_secret: docker_registry_pass
+#    docker_registry_user:
+#      from_secret: docker_registry_user
+#
+- name: Televersement de l'image sur le registre
+  commands :
+    - runuser -l root -c "cd $PWD && docker-compose push"
+
