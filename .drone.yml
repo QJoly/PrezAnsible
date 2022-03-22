@@ -21,4 +21,45 @@ steps:
 - name: Televersement de l'image sur le registre
   commands :
     - runuser -l root -c "cd $PWD && docker-compose push"
+---
+name: CD !
+kind: pipeline
+type: docker
+depends_on:
+  - "Envoie des images sur les repos Docker"
+trigger:
+  branch:
+  - master
+  - cicd-test
+  event:
+    exclude:
+      - pull_request
+steps:
+    - name: scp files
+      image: appleboy/drone-scp
+      settings:
+        host:
+           from_secret: ip_cd
+        username: root
+        password:
+           from_secret: ssh_password
+        port: 22
+        target: /tmp/${DRONE_REPO_NAME}
+        source: .
+
+    - name: Update on Docker Swarm
+      image: appleboy/drone-ssh
+      settings:
+        host:
+           from_secret: ip_cd
+        username: root
+        password:
+           from_secret: ssh_password
+        port: 22
+        command_timeout: 120
+        command_timeout: 2m
+        script:
+          - cd /tmp/${DRONE_REPO_NAME}
+          - docker stack rm ${DRONE_REPO_NAME}
+          - docker stack deploy -c docker-compose.yml ${DRONE_REPO_NAME} 
 
