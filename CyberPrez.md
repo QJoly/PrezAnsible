@@ -13,7 +13,6 @@
 [comment]: # (hash: true)
 [comment]: # (respondToHashChanges: true)
 [comment]: # (Other settings are documented at https://revealjs.com/config/)
-[comment]: # (!!! data-background-color="aquamarine")
 
 CyberPrez #02 - Ansible
 # Comprendre Ansible 
