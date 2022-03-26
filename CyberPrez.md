@@ -10,17 +10,31 @@
 [comment]: # (slideNumber: true)
 [comment]: # (showSlideNumber: 'all')
 [comment]: # (markdown: { smartypants: true })
-[comment]: # (hash: false)
-[comment]: # (respondToHashChanges: false)
+[comment]: # (hash: true)
+[comment]: # (respondToHashChanges: true)
 [comment]: # (Other settings are documented at https://revealjs.com/config/)
+[comment]: # (!!! data-background-color="aquamarine")
 
-CyberPrez #02 - Docker
+CyberPrez #02 - Ansible
 # Comprendre Ansible 
 
-[comment]: # (!!!)
+[comment]: # (!!! data-background-color="#f39c12")
 
-Le but de cette présentation est de faire découvrir Docker aux futurs utilisateurs. Il ne faut pas prendre cela pour un tutoriel dans un cadre professionnel.
+Le but de cette présentation est de faire découvrir Ansible aux futurs utilisateurs. Il ne faut pas prendre cela pour un tutoriel dans un cadre professionnel.
 
-En revanche, n'hésitez pas à partager et m'envoyer vos questions. Je mettrai le site à jour si nécéssaire :)
+En revanche, n'hésitez pas à partager et m'envoyer vos questions. Le site sera mis à jour si nécéssaire :)
 
+[comment]: # (!!! data-background-color="#f39c12")
 
+# Qu'est ce que Ansible ? 
+
+[comment]: # (!!! data-background-color="#f39c12")
+
+Ansible est un **outil d'orchestration**. Il permet de *controler* une ou plusieurs machines par ssh dans le but d'automatiser certaines taches. 
+
+[comment]: # (!!! data-background-color="#f39c12")
+
+Les forces de Ansible sont simples: 
+- Une communauté très active pour ajouter des fonctionnalités (Profitant de la popularité du Python)
+- Utilisation du YAML facilitant son utilisation 
+- Agentless (Aucun agent à installer sur les machines à piloter)
