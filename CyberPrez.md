@@ -17,7 +17,7 @@
 CyberPrez #02 - Ansible
 # Comprendre Ansible 
 
-[comment]: # (!!! data-background-color="#2ecc71")
+[comment]: # (!!! data-background-color="#2ecc71" data-font-color="#2ecc71")
 
 Le but de cette présentation est de faire découvrir Ansible aux futurs utilisateurs. Il ne faut pas prendre cela pour un tutoriel dans un cadre professionnel.
 
