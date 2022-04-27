@@ -19,11 +19,10 @@ CyberPrez #02 - Ansible
 
 [comment]: # (!!! data-background-color="#f6e58d")
 
-<font color="#FFFFFF">
 Le but de cette présentation est de faire découvrir Ansible aux futurs utilisateurs. Il ne faut pas prendre cela pour un tutoriel dans un cadre professionnel.
 <br>
 En revanche, n'hésitez pas à partager et m'envoyer vos questions. Le site sera mis à jour si nécéssaire :)
-</font>
+
 [comment]: # (!!! data-background-color="#f6e58d")
 
 # Qu'est ce que Ansible ? 
@@ -33,11 +32,11 @@ En revanche, n'hésitez pas à partager et m'envoyer vos questions. Le site sera
 Ansible est un **outil d'orchestration**. Il permet de *controler* une ou plusieurs machines par ssh dans le but d'automatiser certaines taches. 
 
 [comment]: # (!!! data-background-color="#f6e58d")
-<font color="#FFFFFF">
+
 Vous devrez fournir à Ansible un fichier descriptif détaillant comment est-ce que la VM doit être configurée. 
 On nomme ce fichier **"un playbook"**.  <br>
 Si la machine est déjà correctement configurée, Ansible vous en informera et ne fera rien de plus. 
-</font>
+
 [comment]: # (!!! data-background-color="#f6e58d")
 
 Les forces de Ansible sont simples: 
