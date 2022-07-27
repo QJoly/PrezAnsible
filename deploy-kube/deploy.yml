@@ -4,7 +4,9 @@ metadata:
   name: deploy-prezansible
   annotations:
     argocd.argoproj.io/hook: PostSync
-  version: 1
+    #    argocd.argoproj.io/sync-wave: "2"
+  label:
+    version: 1
 spec:
   selector:
     matchLabels:
