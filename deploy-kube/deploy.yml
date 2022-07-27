@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-prezansible
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+  version: 1
+spec:
+  selector:
+    matchLabels:
+      app: deploy-prezansible
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: deploy-prezansible
+    spec:
+      containers:
+      - name: prezansible
+        image: thoughtlesshub/prezansible
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          tcpSocket:
+            host: 127.0.0.1
+            port: 80
+          initialDelaySeconds: 180
+          periodSeconds: 3
+
