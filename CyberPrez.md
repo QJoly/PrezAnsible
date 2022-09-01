@@ -54,3 +54,31 @@ Les forces de Ansible sont simples:
 - Agentless (Aucun agent à installer sur les machines à piloter, SSH suffit)
 
 [comment]: # (!!! data-background-color="#f6e58d" )
+
+# Débuter avec Ansible
+
+[comment]: # (!!! data-background-color="#f6e58d" )
+
+Comme dit précédemment : Ansible utilise **ssh** pour piloter les machines.
+Il est possible de s'authentifier via mot de passe *(avec l'argument --ask-pass)* mais nous allons utiliser des clés **ssh**. 
+
+*Cette étape sera détaillée en dessous*
+
+
+[comment]: # (||| data-background-color="#f6e58d" )
+
+Une clé asymétrique se compose toujours de 2 parties différentes : 
+- Une clé publique
+- Une clé privée
+
+Elles ont des usages totalement différent. 
+La clé privée est une preuve mathématique qui va correspondre à la clé publique. 
+
+On donne donc la clé publique à une machine en lui demandant d'authentifier toute personne ayant la clé privé correspondant. 
+
+Nous n'irons pas plus loin dans l'explication. 
+Pour imager tout ça, la clé publique correspond à un identifiant (qui pourrait être donné à toute personne), et la clé privé à un mot de passe qui doit rester chez vous. 
+
+[comment]: # (!!! data-background-color="#f6e58d" )
+
+[comment]: # (!!! data-background-color="#f6e58d" )
