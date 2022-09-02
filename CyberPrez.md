@@ -65,7 +65,7 @@ Il est possible de s'authentifier via mot de passe *(avec l'argument --ask-pass)
 *Cette étape sera détaillée en dessous*
 
 
-[comment]: # (||| data-background-color="#f6e58d" )
+[comment]: # (!!! data-background-color="#f6e58d" )
 
 Une clé asymétrique se compose toujours de 2 parties différentes : 
 - Une clé publique
@@ -79,6 +79,16 @@ On donne donc la clé publique à une machine en lui demandant d'authentifier to
 Nous n'irons pas plus loin dans l'explication. 
 Pour imager tout ça, la clé publique correspond à un identifiant (qui pourrait être donné à toute personne), et la clé privé à un mot de passe qui doit rester chez vous. 
 
-[comment]: # (!!! data-background-color="#f6e58d" )
+[comment]: # (||| data-background-color="#f6e58d" )
+
+Nous pouvons générer une paire de clés via la commande suivante: 
+```bash
+ssh-keygen -t ed25519
+```
+Si vous laissez les paramètres par défaut, vous aurez vos clés à cet emplacement : 
+- ~/.ssh/id_ed25519 pour la clé privée
+- ~/.ssh/id_ed25519.pub pour la clé publique
+
+Je vous conseille de ne pas renommer/déplacer ces fichiers pour que votre client **ssh** les utilise par défaut.
 
 [comment]: # (!!! data-background-color="#f6e58d" )
