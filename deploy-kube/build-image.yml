@@ -11,7 +11,7 @@ spec:
   containers:
   - name: kaniko
     image: gcr.io/kaniko-project/executor:latest
-    args: ["--context=git://git.thoughtless.eu/CyberPrez/PrezAnsible",
+    args: ["--context=git://github.com/QJoly/PrezAnsible",
             "--destination=registry.thebidouilleur.xyz/prezansible:latest",
             "--dockerfile=Dockerfile"]
     volumeMounts:
