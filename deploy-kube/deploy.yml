@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: prezansible
-        image: registry.thebidouilleur.xyz/prezansible
+        image: qjoly/prezansible
         imagePullPolicy: Always
         ports:
         - containerPort: 80
