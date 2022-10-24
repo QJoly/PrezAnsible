@@ -174,3 +174,4 @@ Voici le résultat que j'ai eu après avoir lancé le playbook que nous venons d
 
 ![Résultat](/img/result_hello-world.png)
 
+On remarque qu'il y a des sections "Changed" et d'autres "OK"
