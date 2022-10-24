@@ -106,7 +106,7 @@ Voici un exemple d'inventaire:
 
 ```ini
 192.168.1.20
-192.168.1.199 ansible_host=jacob
+192.168.122.82 ansible_host=jacob
 [cluster]
 192.168.1.200
 192.168.1.201
@@ -124,4 +124,53 @@ Pour voir ce fonctionnement, créons notre premier playbook.
 ## Premier playbook
 
 [comment]: # (!!! data-background-color="#f6e58d" )
+
+Créons le fichier suivant: 
+```yaml
+- name: Notre Premier playbook
+  hosts: jacob
+  tasks:
+    - name: Dire Bonjour au monde
+      command: echo "Hello World"
+```
+*analyse du fichier plus bas*
+
+[comment]: # (!!! data-background-color="#f6e58d" )
+
+```yaml [2-2]
+- name: Notre Premier playbook
+  hosts: jacob
+  tasks:
+    - name: Dire Bonjour au monde
+      command: echo "Hello World"
+```
+Machine(s) utilisée(s) pour les instructions.
+
+[comment]: # (||| data-background-color="#f6e58d" data-auto-animate)
+
+```yaml [4-5]
+- name: Notre Premier playbook
+  hosts: jacob
+  tasks:
+    - name: Dire Bonjour au monde
+      command: echo "Hello World"
+```
+Notre instruction. 
+Elle porte un nom, utilisera le module "command" avec le paramètre `echo "Hello World"`
+
+[comment]: # (||| data-background-color="#f6e58d" data-auto-animate)
+
+Ce playbook se lance via la commande : 
+
+```bash
+ansible-playbook hello-world.yml -i inventaire.ini
+```
+
+[comment]: # (!!! data-background-color="#f6e58d" )
+
+### Résultat du playbook
+
+Voici le résultat que j'ai eu après avoir lancé le playbook que nous venons d'écrire : 
+
+![Résultat](/img/result_hello-world.png)
 

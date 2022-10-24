@@ -1,0 +1,6 @@
+---
+- name: Notre Premier playbook
+  hosts: jacob
+  tasks:
+    - name: Dire Bonjour au monde
+      command: echo "Hello World"
