@@ -25,7 +25,7 @@ En revanche, n'hésitez pas à partager et m'envoyer vos questions. Le site sera
 
 [comment]: # (!!! data-background-color="#f6e58d")
 
-# Qu'est ce que Ansible ? 
+# Qu'est ce qu'Ansible ? 
 
 [comment]: # (!!! data-background-color="#f6e58d")
 
@@ -64,7 +64,6 @@ Il est possible de s'authentifier via mot de passe *(avec l'argument --ask-pass)
 
 *Cette étape sera détaillée en dessous*
 
-
 [comment]: # (!!! data-background-color="#f6e58d" )
 
 Une clé asymétrique se compose toujours de 2 parties différentes : 
@@ -89,6 +88,40 @@ Si vous laissez les paramètres par défaut, vous aurez vos clés à cet emplace
 - ~/.ssh/id_ed25519 pour la clé privée
 - ~/.ssh/id_ed25519.pub pour la clé publique
 
-Je vous conseille de ne pas renommer/déplacer ces fichiers pour que votre client **ssh** les utilise par défaut.
+[comment]: # (||| data-background-color="#f6e58d" )
+
+Pour que ces clés permettent l'authentification, il faudra copier le contenu de la clé publique dans le fichier `~/.ssh/authorized_keys` de l'utilisateur sur lequel vous voulez vous authentifier. 
+
+Si vous voulez vous authentifier sur le serveur "192.168.1.20" avec l'utilisateur "thebidouilleur", il faudra copier votre clé publique (`~/.ssh/id_ed25519.pub`) dans le fichier `/home/thebidouilleur/.ssh/authorized_keys` du serveur *192.168.1.20*
+
+[comment]: # (||| data-background-color="#f6e58d" )
+
+Avant même de créer une suite d'instruction, nous devons créer notre **pool de machines joignables** par Ansible. 
+On va donc créer un fichier qui sera notre **inventaire** Ansible. 
 
 [comment]: # (!!! data-background-color="#f6e58d" )
+
+Par défaut, votre inventaire se trouve à cet emplacement : `/etc/ansible/hosts`
+Voici un exemple d'inventaire: 
+
+```ini
+192.168.1.20
+192.168.1.199 ansible_host=jacob
+[cluster]
+192.168.1.200
+192.168.1.201
+192.168.1.202
+```
+
+[comment]: # (!!! data-background-color="#f6e58d" )
+
+Un playbook ne va pas forcément communiquer avec toutes les machines de l'inventaire. Celui-ci peut demander l'accès à la machine nommée "jacob" ou aux machines présentent dans le groupe "cluster". 
+
+Pour voir ce fonctionnement, créons notre premier playbook. 
+
+[comment]: # (!!! data-background-color="#f6e58d" )
+
+## Premier playbook
+
+[comment]: # (!!! data-background-color="#f6e58d" )
+
