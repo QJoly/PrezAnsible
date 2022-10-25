@@ -175,3 +175,29 @@ Voici le résultat que j'ai eu après avoir lancé le playbook que nous venons d
 ![Résultat](/img/result_hello-world.png)
 
 On remarque qu'il y a des sections "Changed" et d'autres "OK"
+
+[comment]: # (!!! data-background-color="#f6e58d" )
+
+C.A.D. que si jamais Ansible déduit qu'une action est déjà complète : celui-ci ne répétera pas cette même action. 
+On soumet un **état** à la machine, elle ne va pas bêtement répéter une action inutile. 
+
+Le playbook que nous avons écrit ne fait qu'éxecuter une commande Bash. Comme Ansible n'a aucun moyen de savoir si la commande doit être utile ou non : il l'éxecutera à chaque lancement. 
+
+C'est pourquoi il est préférable de ne **pas** utiliser les modules Command,Shell,Raw. 
+
+[comment]: # (!!! data-background-color="#f6e58d" )
+
+
+```yaml
+- name: Créer un fichier Hello-World
+  hosts: all
+  tasks:
+  - name: Créer un fichier Hello-World
+    copy:
+      dest: "/tmp/Hello"
+      content: |
+        Bonjour
+        Le Monde
+```
+
+[comment]: # (||| data-background-color="#f6e58d" )
